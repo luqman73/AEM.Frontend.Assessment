@@ -46,6 +46,10 @@ Use the following credentials to log in:
 Email: user@aemenersol.com  
 Password: Test@123
 
+For testing failed login, you can enter any incorrect email or password.
+
+Note: The Sign In button is disabled until a valid email format is entered in the username field.
+
 ---
 
 ## API Used
