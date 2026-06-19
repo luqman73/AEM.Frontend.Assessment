@@ -1,27 +1,87 @@
-# AemDashboard
+# AEM Dashboard (Angular 14 Assessment)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+This is a dashboard application built using **Angular 14**, **Bootstrap 4**, and **Chart.js** as part of a technical assessment.
 
-## Development server
+It includes authentication, route protection, API integration, and data visualization.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular 14
+- Angular CLI
+- Bootstrap 4
+- Chart.js
+- RxJS
+- NPM
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Features
 
-## Running unit tests
+### Authentication
+- Login form with validation
+- API-based authentication
+- Bearer token stored in localStorage
+- Error handling for invalid login
+- Route guard protection for dashboard
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Dashboard
+- Protected route (requires authentication)
+- Bar chart visualization (Chart.js)
+- Donut chart visualization (Chart.js)
+- User table display from API data
 
-## Running end-to-end tests
+### Security
+- AuthGuard prevents unauthorized access
+- Token-based API authentication
+- Logout functionality clears session
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## Login Credentials
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Use the following credentials to log in:
+
+Email: user@aemenersol.com  
+Password: Test@123
+
+---
+
+## API Used
+
+### Login
+POST http://test-demo.aemenersol.com/api/account/login
+
+### Dashboard
+GET http://test-demo.aemenersol.com/api/dashboard
+
+---
+
+## How to Run the Project
+
+npm install  
+ng serve  
+
+Navigate to:
+http://localhost:4200/
+
+---
+
+## Project Structure
+
+- Auth module (login + guard)
+- Dashboard module (charts + table)
+- Services (API handling)
+- Routing module (protected routes)
+
+---
+
+## Notes
+
+- Built as part of a frontend assessment
+- Focus on Angular fundamentals, API integration, and UI structure
+- Bootstrap used for layout and responsiveness
+- Chart.js used for data visualization
+
+---
