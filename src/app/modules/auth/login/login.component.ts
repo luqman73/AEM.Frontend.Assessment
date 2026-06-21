@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router';
+import { PouchDbService } from 'src/app/core/services/pouchdb.service';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private auth: AuthService,
     private router: Router,
+    private pouchDbService: PouchDbService,
   ) {}
 
   onSubmit(): void {
@@ -31,11 +33,23 @@ export class LoginComponent {
     this.auth.login(username!, password!).subscribe({
       next: () => {
         console.log('LOGIN SUCCESS');
+
+        this.pouchDbService.saveUser(username!, password!);
+
         this.router.navigate(['/dashboard']);
       },
-      error: (err) => {
-        console.log('LOGIN ERROR:', err);
-        this.errorMessage = 'Invalid username or password.';
+      error: async (err) => {
+        const valid = await this.pouchDbService.validateUser(
+          username!,
+          password!,
+        );
+
+        if (valid) {
+           console.log('LOGIN SUCCESS TRIGGERED from pouchdb');
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.errorMessage = 'Invalid username or password.';
+        }
       },
     });
   }
