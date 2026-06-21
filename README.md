@@ -64,12 +64,52 @@ GET http://test-demo.aemenersol.com/api/dashboard
 
 ## How to Run the Project
 
-npm install  
-ng serve  
+### 1. Clone the repository
+git clone https://github.com/luqman73/AEM.Frontend.Assessment.git
 
-Navigate to:
+cd AEM.Frontend.Assessment
+
+---
+
+## Angular Web Application (Main Branch)
+
+### Step 1: Switch to main branch
+git checkout main
+
+### Step 2: Install dependencies
+npm install
+
+### Step 3: Run the Angular app
+ng serve
+
+### Step 4: Open in browser
 http://localhost:4200/
 
+---
+
+## Electron Desktop Application (Electron Branch)
+
+### Step 1: Switch to Electron branch
+git checkout electron-test
+
+### Step 2: Install dependencies
+npm install
+
+### Step 3: Start Angular app (required for Electron)
+ng serve
+
+### Step 4: Run Electron app (new terminal)
+npm run electron
+
+---
+
+## Important Notes
+
+- Always run `npm install` after switching branches to ensure dependencies are correctly installed.
+- The Electron app loads the Angular application from `http://localhost:4200/`, so Angular must be running before launching Electron.
+- Both branches are independent implementations of the same base project:
+  - `main` → Angular web application
+  - `electron-test` → Electron desktop application with offline support using PouchDB
 ---
 
 ## Project Structure
